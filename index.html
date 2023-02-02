@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Add styles for the header section */
+        header {
+            height: 50vh;
+            /* Make the header take up the full screen */
+            background-image: url('static/UCL.jpg');
+            /* Add the event photo */
+            background-size: cover;
+            /* Make the photo cover the entire header section */
+            background-position: center;
+            /* Center the photo */
+            display: flex;
+            /* Use flexbox to vertically center the text */
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Add styles for the header text */
+        header h1 {
+            font-size: 36px;
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Add styles for the main content section */
+        main {
+            padding: 50px;
+        }
+
+        /* Add styles for the content text */
+        main h2 {
+            font-size: 24px;
+            margin-top: 50px;
+        }
+
+        main p {
+            font-size: 18px;
+            line-height: 1.5;
+            opacity: 0;
+            /* Set the opacity to 0 to hide the content initially */
+            transition: all 0.5s ease-in-out;
+            /* Add a transition for the opacity */
+        }
+
+        /* Show the content when it is in the viewport */
+        .in-view {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>MESSI vs. RONALDO <br> FAREWELL</h1>
+    </header>
+    <main>
+        <h2 id="event-info-title">Event Information</h2>
+        <p id="event-info-text">Most of us were for last two decades admiring two stars in football. Unfortunetly
+            everything has to end sometimes and for these two half-men half-gods there is no exeption. So let's unite
+            the whole football word in last one ultimate clash where team of Messi's favourite ones will play Ronaldo
+            and his picked team.</p>
+        <h2 id="event-schedule-title">Event Schedule</h2>
+        <p id="event-schedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
+            gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus.
+            Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+        <h2 id="event-location-title">Event Location</h2>
+        <p id="event-location-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
+            gravida pellentesque urna varius vitae. Sed dui
+
+            František Krůs
+            continue
+
+            <script>
+                // Get references to the content elements
+                var eventInfoText = document.getElementById("event-info-text");
+                var eventScheduleText = document.getElementById("event-schedule-text");
+                var eventLocationText = document.getElementById("event-location-text");
+
+                // Check if the content is in the viewport when the user scrolls
+                window.addEventListener("scroll", function () {
+                    // Get the distance of the content from the top of the viewport
+                    var eventInfoDistance = eventInfoText.getBoundingClientRect().top;
+                    var eventScheduleDistance = eventScheduleText.getBoundingClientRect().top;
+                    var eventLocationDistance = eventLocationText.getBoundingClientRect().top;
+
+                    // Check if the content is in the viewport
+                    if (eventInfoDistance < window.innerHeight) {
+                        eventInfoText.classList.add("in-view");
+                    }
+                    if (eventScheduleDistance < window.innerHeight) {
+                        eventScheduleText.classList.add("in-view");
+                    }
+                    if (eventLocationDistance < window.innerHeight) {
+                        eventLocationText.classList.add("in-view");
+                    }
+                });
+            </script>
+</body>
+
+</html>
