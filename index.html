@@ -1,111 +1,154 @@
 <html>
 
 <head>
+    <title>MESSI vs. RONALDO</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
+            background-color: #F2F2F2;
         }
 
-        /* Add styles for the header section */
-        header {
-            height: 50vh;
-            /* Make the header take up the full screen */
-            background-image: url('static/UCL.jpg');
-            /* Add the event photo */
-            background-size: cover;
-            /* Make the photo cover the entire header section */
-            background-position: center;
-            /* Center the photo */
-            display: flex;
-            /* Use flexbox to vertically center the text */
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Add styles for the header text */
-        header h1 {
-            font-size: 36px;
-            color: white;
-            text-align: center;
-            margin: 0;
-        }
-
-        /* Add styles for the main content section */
-        main {
-            padding: 50px;
-        }
-
-        /* Add styles for the content text */
-        main h2 {
-            font-size: 24px;
-            margin-top: 50px;
-        }
-
-        main p {
+        p {
             font-size: 18px;
             line-height: 1.5;
-            opacity: 0;
-            /* Set the opacity to 0 to hide the content initially */
-            transition: all 0.5s ease-in-out;
-            /* Add a transition for the opacity */
+            margin: 1em 0;
         }
 
-        /* Show the content when it is in the viewport */
+        @media (max-width: 767px) {
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .header-section {
+            background-image: url("static/UCL.jpg");
+            background-size: cover;
+            height: 50vh;
+            background-position: center;
+        }
+
+        .header-text {
+            text-align: center;
+            color: white;
+            padding-top: 15vh;
+        }
+
+        .header-text h1 {
+            font-size: 4.5vh;
+            font-weight: bold;
+        }
+
+        .header-text p {
+            font-size: 3vh;
+            padding-top: 3vh;
+        }
+
+        .event-info {
+            background-color: white;
+            padding: 50px;
+            margin: 5vh;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .event-info h2 {
+            font-size: 3.5vh;
+            font-weight: bold;
+            padding-bottom: 20px;
+        }
+
         .in-view {
-            opacity: 1;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        a {
+            color: rgb(31, 16, 100);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #007bff;
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>MESSI vs. RONALDO <br> FAREWELL</h1>
-    </header>
-    <main>
-        <h2 id="event-info-title">Event Information</h2>
-        <p id="event-info-text">Most of us were for last two decades admiring two stars in football. Unfortunetly
-            everything has to end sometimes and for these two half-men half-gods there is no exeption. So let's unite
-            the whole football word in last one ultimate clash where team of Messi's favourite ones will play Ronaldo
-            and his picked team.</p>
-        <h2 id="event-schedule-title">Event Schedule</h2>
-        <p id="event-schedule-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
-            gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus.
-            Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-        <h2 id="event-location-title">Event Location</h2>
-        <p id="event-location-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
-            gravida pellentesque urna varius vitae. Sed dui
+    <div class="header-section">
+        <div class="header-text">
+            <h1>MESSI vs. RONALDO<br>FAREWELL</h1>
+            <p>Make the biggest sport event of century real</p>
+        </div>
+    </div>
+    <div class="event-info" id="event-info-text">
+        <h2>Event Information</h2>
+        <p>For the past two decades, we have been in awe of two football legends. Unfortunately, all good things must
+            come to an end. Let us come together as the football community to witness one final showdown, where a team
+            chosen by Lionel Messi will face off against a team selected by Cristiano Ronaldo.</p>
+    </div>
+    <div class="event-info" id="event-schedule-text">
+        <h2>Event Schedule</h2>
+        <p>The timing of this event will be contingent upon the retirement of one of these football greats. We must be
+            prepared and eagerly await the opportunity to make it happen. The moment one of these GOATs retires, it will
+            be the ideal time for this event to take place.
+        </p>
+    </div>
+    <div class="event-info" id="event-location-text">
+        <h2>Event Location</h2>
+        <p>Regardless of where these football legends were born, there is likely a place on Earth where everyone wants
+            to see a match like this. Unfortunately, as of now there is no inflatable stadium to accommodate such a
+            large event, so we will have to search for the largest stadium available.</p>
+    </div>
+    <div class="event-info" id="event-location-tasks">
+        <h2>How to make it happen?</h2>
+        <p>To bring this sporting event to fruition, we need the entire football community to come together and show
+            support. As passionate football fans, you can help by signing <a
+                href="https://petitions.sumofus.org/petitions/messi-vs-ronaldo-farewell">this petition</a>. The more
+            people who sign, the easier it will be to convince the powers that be to make this match a reality.
+        </p>
+    </div>
+    <script>
+        var eventInfo = document.getElementById("event-info-text");
+        var eventSchedule = document.getElementById("event-schedule-text");
+        var eventLocation = document.getElementById("event-location-text");
+        var eventTasks = document.getElementById("event-location-tasks");
+        window.addEventListener("scroll", function () {
+            // Get the distance of the content from the top of the viewport
+            var eventInfoDistance = eventInfo.getBoundingClientRect().top;
+            var eventScheduleDistance = eventSchedule.getBoundingClientRect().top;
+            var eventLocationDistance = eventLocation.getBoundingClientRect().top;
+            var eventTaskDistance = eventTasks.getBoundingClientRect().top;
 
-            František Krůs
-            continue
-
-            <script>
-                // Get references to the content elements
-                var eventInfoText = document.getElementById("event-info-text");
-                var eventScheduleText = document.getElementById("event-schedule-text");
-                var eventLocationText = document.getElementById("event-location-text");
-
-                // Check if the content is in the viewport when the user scrolls
-                window.addEventListener("scroll", function () {
-                    // Get the distance of the content from the top of the viewport
-                    var eventInfoDistance = eventInfoText.getBoundingClientRect().top;
-                    var eventScheduleDistance = eventScheduleText.getBoundingClientRect().top;
-                    var eventLocationDistance = eventLocationText.getBoundingClientRect().top;
-
-                    // Check if the content is in the viewport
-                    if (eventInfoDistance < window.innerHeight) {
-                        eventInfoText.classList.add("in-view");
-                    }
-                    if (eventScheduleDistance < window.innerHeight) {
-                        eventScheduleText.classList.add("in-view");
-                    }
-                    if (eventLocationDistance < window.innerHeight) {
-                        eventLocationText.classList.add("in-view");
-                    }
-                });
-            </script>
+            // Check if the content is in the viewport
+            if (eventInfoDistance < window.innerHeight) {
+                eventInfo.classList.add("in-view");
+            }
+            if (eventScheduleDistance < window.innerHeight) {
+                eventSchedule.classList.add("in-view");
+            }
+            if (eventLocationDistance < window.innerHeight) {
+                eventLocation.classList.add("in-view");
+            }
+            if (eventTaskDistance < window.innerHeight) {
+                eventTasks.classList.add("in-view");
+            }
+        });
+    </script>
 </body>
 
 </html>
